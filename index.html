@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>OpenAPI UI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.32.5/swagger-ui.css" integrity="sha256-O6NiPWjr7GnwlEVPqvNpYwYGmibfTn+evtDDKmYhTPA=" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.32.5/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.32.5/favicon-16x16.png" sizes="16x16" />
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.32.5/swagger-ui-bundle.js" integrity="sha256-AQOfHsRGLzuqSKeCqev0TJ7hCPHbvwVlUPMPO+xRYRU=" crossorigin="anonymous"></script>
+  <script>
+    var param = window.document.location.search
+    var url = param ? param.split("=")[1] : prompt("Please enter swagger(openapi).json(yml) URL");
+    window.onload = function () {
+      window.ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis
+        ]
+      })
+    }
+  </script>
+</body>
+
+</html>
